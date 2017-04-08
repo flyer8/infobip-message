@@ -19,12 +19,12 @@ RUN mkdir -p $MAVEN_HOME /usr/share/maven/ref \
 RUN yum install epel-release -y
 RUN yum install rabbitmq-server.noarch -y
 
-VOLUME ["/sys/fs/cgroup"]
-EXPOSE 5672 15672 25672 4369 8080
-
 RUN mkdir /opt/message-gateway
 RUN mkdir /opt/message-processor
 ADD message-gateway/ /opt/message-gateway/
 ADD message-processor/ /opt/message-processor/
 ADD start_app.sh /
 ENTRYPOINT ["/usr/sbin/rabbitmq-server"]
+
+VOLUME ["/sys/fs/cgroup"]
+EXPOSE 5672 15672 25672 4369 8080

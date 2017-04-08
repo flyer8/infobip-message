@@ -22,7 +22,7 @@ node {
     stage 'Publish build info'
     server.publishBuildInfo buildInfo
 	
-	stage 'Deploying to Staging env'
+	stage 'Copy to Staging env'
 	sh 'sudo -u root mkdir /opt/infobip-message/ || true'
 	sh 'sudo -u root rm -rf /opt/infobip-message/*'
 	sh 'sudo -u root rm -rf /opt/infobip-message/.* || true'
@@ -30,10 +30,11 @@ node {
     sh 'sudo -u root cp -rf message-gateway/ /opt/infobip-message/'
 	sh 'sudo -u root cp -rf message-processor/ /opt/infobip-message/'
 		
-	stage 'Docker deploying'
+	stage 'Deploy to Docker'
     // Need add Dockerfile and script from git
     sh 'docker rm -f -v message || true'
 	sh 'docker rmi infobip/message || true'
 	sh 'docker build --rm -t infobip/message /opt/infobip-message'
 	sh 'docker run --name message -p 8888:8080 -d infobip/message'
+	sh 'docker exec -d message ./start_app.sh'
 }
