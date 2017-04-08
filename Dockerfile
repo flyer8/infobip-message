@@ -27,14 +27,4 @@ RUN mkdir /opt/message-processor
 ADD message-gateway/ /opt/message-gateway/
 ADD message-processor/ /opt/message-processor/
 ADD start_app.sh /
-# CMD /start_app.sh
-# CMD ["/usr/sbin/rabbitmq-server"]
 ENTRYPOINT ["/usr/sbin/rabbitmq-server"]
-
-# java -jar target/message-processor-1.0-SNAPSHOT.jar etc/config.properties &
-# WORKDIR /opt/message-processor
-# CMD ["java", "-jar", "target/message-processor-1.0-SNAPSHOT.jar", "etc/config.properties"]
-
-# mvn tomcat7:run &
-# WORKDIR /opt/message-gateway
-# CMD ["mvn", "tomcat7:run"]

@@ -1,4 +1,6 @@
-﻿node {
+﻿// Jenkins Job pipeline groovy script.
+// Autor: Sergey Shimansiy flyer8@yandex.ru
+node {
     // Get Artifactory server instance, defined in the Artifactory Plugin administration page.
     def server = Artifactory.server "Artifactory_localhost"
     // Create an Artifactory Maven instance.
@@ -21,7 +23,8 @@
     server.publishBuildInfo buildInfo
 	
 	stage 'Deploying to Staging env'
-	// sh 'mkdir /opt/infobip-message || true'
+	sh 'rm -rf /opt/infobip-message/*'
+	sh 'rm -rf /opt/infobip-message/.* || true'
 	sh 'git clone https://github.com/flyer8/infobip-message.git /opt/infobip-message'
     sh 'cp -rf message-gateway/ /opt/infobip-message/'
 	sh 'cp -rf message-processor/ /opt/infobip-message/'
