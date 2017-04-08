@@ -21,7 +21,7 @@
     server.publishBuildInfo buildInfo
 	
 	stage 'Deploying to Staging env'
-	sh 'mkdir /opt/infobip-message'
+	sh 'mkdir /opt/infobip-message || true'
 	sh 'git clone https://github.com/flyer8/infobip-message.git /opt/infobip-message'
     sh 'cp -rf message-gateway/ /opt/infobip-message/'
 	sh 'cp -rf message-processor/ /opt/infobip-message/'
