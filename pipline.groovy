@@ -23,11 +23,12 @@ node {
     server.publishBuildInfo buildInfo
 	
 	stage 'Deploying to Staging env'
-	sh 'rm -rf /opt/infobip-message/*'
-	sh 'rm -rf /opt/infobip-message/.* || true'
-	sh 'git clone https://github.com/flyer8/infobip-message.git /opt/infobip-message'
-    sh 'cp -rf message-gateway/ /opt/infobip-message/'
-	sh 'cp -rf message-processor/ /opt/infobip-message/'
+	sh 'sudo -u root mkdir /opt/infobip-message/ || true'
+	sh 'sudo -u root rm -rf /opt/infobip-message/*'
+	sh 'sudo -u root rm -rf /opt/infobip-message/.* || true'
+	sh 'sudo -u root git clone https://github.com/flyer8/infobip-message.git /opt/infobip-message/'
+    sh 'sudo -u root cp -rf message-gateway/ /opt/infobip-message/'
+	sh 'sudo -u root cp -rf message-processor/ /opt/infobip-message/'
 		
 	stage 'Docker deploying'
     // Need add Dockerfile and script from git
