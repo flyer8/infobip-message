@@ -21,13 +21,15 @@
     server.publishBuildInfo buildInfo
 	
 	stage 'Deploying to Staging env'
-    sh 'cp -rf message-gateway/ /opt/infobip/'
-	sh 'cp -rf message-processor/ /opt/infobip/'
+	sh 'mkdir /opt/infobip-message'
+	sh 'git clone https://github.com/flyer8/infobip-message.git /opt/infobip-message'
+    sh 'cp -rf message-gateway/ /opt/infobip-message/'
+	sh 'cp -rf message-processor/ /opt/infobip-message/'
 		
 	stage 'Docker deploying'
     // Need add Dockerfile and script from git
     sh 'docker rm -f -v message || true'
 	sh 'docker rmi infobip/message || true'
-	sh 'docker build --rm -t infobip/message /opt/infobip'
+	sh 'docker build --rm -t infobip/message /opt/infobip-message'
 	sh 'docker run --name message -p 8888:8080 -d infobip/message'
 }
