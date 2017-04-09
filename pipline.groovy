@@ -32,9 +32,9 @@ node {
 		
 	stage 'Deploy to Docker'
     // Need add Dockerfile and script from git
-    sh 'docker rm -f -v message || true'
-	sh 'docker rmi infobip/message || true'
-	sh 'docker build --rm -t infobip/message /opt/infobip-message'
-	sh 'docker run --name message -p 8888:8080 -d infobip/message'
-	sh 'docker exec -d message ./start_app.sh'
+    sh 'sudo -u root docker rm -f -v message || true'
+	sh 'sudo -u root docker rmi infobip/message || true'
+	sh 'sudo -u root docker build --rm -t infobip/message /opt/infobip-message'
+	sh 'sudo -u root docker run --name message -p 8888:8080 -d infobip/message'
+	sh 'sudo -u root docker exec -d message ./start_app.sh'
 }
