@@ -1,0 +1,838 @@
+Started by user admin
+[Pipeline] node
+Running on master in /var/lib/jenkins/workspace/infobip_pipe1
+[Pipeline] {
+[Pipeline] getArtifactoryServer
+[Pipeline] newMavenBuild
+[Pipeline] stage (Clone sources)
+Using the ‘stage’ step without a block argument is deprecated
+Entering stage Clone sources
+Proceeding
+[Pipeline] git
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/mzagar/messaging-example.git # timeout=10
+Fetching upstream changes from https://github.com/mzagar/messaging-example.git
+ > git --version # timeout=10
+ > git fetch --tags --progress https://github.com/mzagar/messaging-example.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision c3c1bd342199833e57c0e6d7a00dfc99833758bf (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f c3c1bd342199833e57c0e6d7a00dfc99833758bf
+ > git branch -a -v --no-abbrev # timeout=10
+ > git branch -D master # timeout=10
+ > git checkout -b master c3c1bd342199833e57c0e6d7a00dfc99833758bf
+ > git rev-list c3c1bd342199833e57c0e6d7a00dfc99833758bf # timeout=10
+[Pipeline] stage (Artifactory configuration)
+Using the ‘stage’ step without a block argument is deprecated
+Entering stage Artifactory configuration
+Proceeding
+[Pipeline] stage (Maven build)
+Using the ‘stage’ step without a block argument is deprecated
+Entering stage Maven build
+Proceeding
+[Pipeline] ArtifactoryMavenBuild
+Jenkins Artifactory Plugin version: 2.10.3
+Artifactory integration is enabled
+[infobip_pipe1] $ java -classpath /opt/apache-maven-3.3.9/boot/plexus-classworlds-2.5.2.jar -Dmaven.home=/opt/apache-maven-3.3.9 -DbuildInfoConfig.propertiesFile=/tmp/buildInfo3558018206962424929.properties -Dm3plugin.lib=/var/lib/jenkins/cache/artifactory-plugin/2.10.3 -Dclassworlds.conf=/tmp/classworlds4017317191049814654conf -Dmaven.multiModuleProjectDirectory=/var/lib/jenkins/workspace/infobip_pipe1 org.codehaus.plexus.classworlds.launcher.Launcher -f pom.xml clean install
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - Scanning for projects...
+[main] INFO org.jfrog.build.extractor.maven.BuildInfoRecorder - Initializing Artifactory Build-Info Recording
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - ------------------------------------------------------------------------
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - Reactor Build Order:
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - 
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - message-processor
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - message-gateway
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - messaging-example
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger -                                                                         
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - ------------------------------------------------------------------------
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - Building message-processor 1.0-SNAPSHOT
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - ------------------------------------------------------------------------
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - 
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - --- maven-clean-plugin:2.5:clean (default-clean) @ message-processor ---
+[main] INFO org.apache.maven.plugin.clean.CleanMojo - Deleting /var/lib/jenkins/workspace/infobip_pipe1/message-processor/target
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - 
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - --- maven-resources-plugin:2.6:resources (default-resources) @ message-processor ---
+[main] WARN org.apache.maven.shared.filtering.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[main] INFO org.apache.maven.shared.filtering.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /var/lib/jenkins/workspace/infobip_pipe1/message-processor/src/main/resources
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - 
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - --- maven-compiler-plugin:3.1:compile (default-compile) @ message-processor ---
+[main] INFO org.apache.maven.plugin.compiler.CompilerMojo - Changes detected - recompiling the module!
+[main] WARN org.apache.maven.plugin.compiler.CompilerMojo - File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[main] INFO org.codehaus.plexus.compiler.javac.JavacCompiler - Compiling 14 source files to /var/lib/jenkins/workspace/infobip_pipe1/message-processor/target/classes
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - 
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - --- maven-resources-plugin:2.6:testResources (default-testResources) @ message-processor ---
+[main] WARN org.apache.maven.shared.filtering.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[main] INFO org.apache.maven.shared.filtering.DefaultMavenResourcesFiltering - Copying 2 resources
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - 
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ message-processor ---
+[main] INFO org.apache.maven.plugin.compiler.TestCompilerMojo - Changes detected - recompiling the module!
+[main] WARN org.apache.maven.plugin.compiler.TestCompilerMojo - File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[main] INFO org.codehaus.plexus.compiler.javac.JavacCompiler - Compiling 1 source file to /var/lib/jenkins/workspace/infobip_pipe1/message-processor/target/test-classes
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - 
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - --- maven-surefire-plugin:2.12.4:test (default-test) @ message-processor ---
+[main] INFO org.apache.maven.plugin.surefire.SurefirePlugin - Surefire report directory: /var/lib/jenkins/workspace/infobip_pipe1/message-processor/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running messaging.processor.ConfigurationTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.343 sec
+
+Results :
+
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - 
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - --- maven-jar-plugin:2.4:jar (default-jar) @ message-processor ---
+[main] INFO org.codehaus.plexus.archiver.jar.JarArchiver - Building jar: /var/lib/jenkins/workspace/infobip_pipe1/message-processor/target/message-processor-1.0-SNAPSHOT.jar
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - 
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - --- maven-shade-plugin:2.3:shade (default) @ message-processor ---
+[main] INFO org.apache.maven.plugins.shade.mojo.ShadeMojo - Including com.google.code.gson:gson:jar:2.2.4 in the shaded jar.
+[main] INFO org.apache.maven.plugins.shade.mojo.ShadeMojo - Including com.rabbitmq:amqp-client:jar:3.3.5 in the shaded jar.
+[main] INFO org.apache.maven.plugins.shade.mojo.ShadeMojo - Including commons-io:commons-io:jar:2.4 in the shaded jar.
+[main] INFO org.apache.maven.plugins.shade.mojo.ShadeMojo - Including ch.qos.logback:logback-classic:jar:1.1.2 in the shaded jar.
+[main] INFO org.apache.maven.plugins.shade.mojo.ShadeMojo - Including ch.qos.logback:logback-core:jar:1.1.2 in the shaded jar.
+[main] INFO org.apache.maven.plugins.shade.mojo.ShadeMojo - Including org.slf4j:slf4j-api:jar:1.7.6 in the shaded jar.
+[main] INFO org.apache.maven.plugins.shade.mojo.ShadeMojo - Replacing original artifact with shaded artifact.
+[main] INFO org.apache.maven.plugins.shade.mojo.ShadeMojo - Replacing /var/lib/jenkins/workspace/infobip_pipe1/message-processor/target/message-processor-1.0-SNAPSHOT.jar with /var/lib/jenkins/workspace/infobip_pipe1/message-processor/target/message-processor-1.0-SNAPSHOT-shaded.jar
+[main] INFO org.apache.maven.plugins.shade.mojo.ShadeMojo - Dependency-reduced POM written at: /var/lib/jenkins/workspace/infobip_pipe1/message-processor/dependency-reduced-pom.xml
+[main] INFO org.apache.maven.plugins.shade.mojo.ShadeMojo - Dependency-reduced POM written at: /var/lib/jenkins/workspace/infobip_pipe1/message-processor/dependency-reduced-pom.xml
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - 
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - --- maven-install-plugin:2.4:install (default-install) @ message-processor ---
+[main] INFO org.codehaus.plexus.PlexusContainer - Installing /var/lib/jenkins/workspace/infobip_pipe1/message-processor/target/message-processor-1.0-SNAPSHOT.jar to /var/lib/jenkins/.m2/repository/message-processor/message-processor/1.0-SNAPSHOT/message-processor-1.0-SNAPSHOT.jar
+[main] INFO org.codehaus.plexus.PlexusContainer - Installing /var/lib/jenkins/workspace/infobip_pipe1/message-processor/dependency-reduced-pom.xml to /var/lib/jenkins/.m2/repository/message-processor/message-processor/1.0-SNAPSHOT/message-processor-1.0-SNAPSHOT.pom
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger -                                                                         
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - ------------------------------------------------------------------------
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - Building message-gateway 1.0-SNAPSHOT
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - ------------------------------------------------------------------------
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - 
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - --- maven-clean-plugin:2.5:clean (default-clean) @ message-gateway ---
+[main] INFO org.apache.maven.plugin.clean.CleanMojo - Deleting /var/lib/jenkins/workspace/infobip_pipe1/message-gateway/target
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - 
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - --- maven-resources-plugin:2.6:resources (default-resources) @ message-gateway ---
+[main] WARN org.apache.maven.shared.filtering.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[main] INFO org.apache.maven.shared.filtering.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /var/lib/jenkins/workspace/infobip_pipe1/message-gateway/src/main/resources
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - 
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - --- maven-compiler-plugin:3.1:compile (default-compile) @ message-gateway ---
+[main] INFO org.apache.maven.plugin.compiler.CompilerMojo - Changes detected - recompiling the module!
+[main] WARN org.apache.maven.plugin.compiler.CompilerMojo - File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[main] INFO org.codehaus.plexus.compiler.javac.JavacCompiler - Compiling 11 source files to /var/lib/jenkins/workspace/infobip_pipe1/message-gateway/target/classes
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - 
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - --- maven-resources-plugin:2.6:testResources (default-testResources) @ message-gateway ---
+[main] WARN org.apache.maven.shared.filtering.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[main] INFO org.apache.maven.shared.filtering.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /var/lib/jenkins/workspace/infobip_pipe1/message-gateway/src/test/resources
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - 
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ message-gateway ---
+[main] INFO org.apache.maven.plugin.compiler.TestCompilerMojo - Changes detected - recompiling the module!
+[main] WARN org.apache.maven.plugin.compiler.TestCompilerMojo - File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[main] INFO org.codehaus.plexus.compiler.javac.JavacCompiler - Compiling 2 source files to /var/lib/jenkins/workspace/infobip_pipe1/message-gateway/target/test-classes
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - 
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - --- maven-surefire-plugin:2.12.4:test (default-test) @ message-gateway ---
+[main] INFO org.apache.maven.plugin.surefire.SurefirePlugin - Surefire report directory: /var/lib/jenkins/workspace/infobip_pipe1/message-gateway/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running messaging.gateway.message.MessageValidatorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.417 sec
+Running messaging.gateway.message.MessageFactoryTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.575 sec
+
+Results :
+
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
+
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - 
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - --- maven-war-plugin:2.2:war (default-war) @ message-gateway ---
+[main] INFO org.apache.maven.plugin.war.WarMojo - Packaging webapp
+[main] INFO org.apache.maven.plugin.war.WarMojo - Assembling webapp [message-gateway] in [/var/lib/jenkins/workspace/infobip_pipe1/message-gateway/target/message-gateway-1.0-SNAPSHOT]
+[main] INFO org.apache.maven.plugin.war.WarMojo - Processing war project
+[main] INFO org.apache.maven.plugin.war.WarMojo - Copying webapp resources [/var/lib/jenkins/workspace/infobip_pipe1/message-gateway/src/main/webapp]
+[main] INFO org.apache.maven.plugin.war.WarMojo - Webapp assembled in [390 msecs]
+[main] INFO org.codehaus.plexus.archiver.war.WarArchiver - Building war: /var/lib/jenkins/workspace/infobip_pipe1/message-gateway/target/message-gateway-1.0-SNAPSHOT.war
+[main] INFO org.codehaus.plexus.archiver.war.WarArchiver - WEB-INF/web.xml already added, skipping
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - 
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - --- maven-install-plugin:2.4:install (default-install) @ message-gateway ---
+[main] INFO org.codehaus.plexus.PlexusContainer - Installing /var/lib/jenkins/workspace/infobip_pipe1/message-gateway/target/message-gateway-1.0-SNAPSHOT.war to /var/lib/jenkins/.m2/repository/messaging-gateway/message-gateway/1.0-SNAPSHOT/message-gateway-1.0-SNAPSHOT.war
+[main] INFO org.codehaus.plexus.PlexusContainer - Installing /var/lib/jenkins/workspace/infobip_pipe1/message-gateway/pom.xml to /var/lib/jenkins/.m2/repository/messaging-gateway/message-gateway/1.0-SNAPSHOT/message-gateway-1.0-SNAPSHOT.pom
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger -                                                                         
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - ------------------------------------------------------------------------
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - Building messaging-example 1.0-SNAPSHOT
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - ------------------------------------------------------------------------
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - 
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - --- maven-clean-plugin:2.5:clean (default-clean) @ messaging-example ---
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - 
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - --- maven-install-plugin:2.4:install (default-install) @ messaging-example ---
+[main] INFO org.codehaus.plexus.PlexusContainer - Installing /var/lib/jenkins/workspace/infobip_pipe1/pom.xml to /var/lib/jenkins/.m2/repository/com/github/mzagar/messaging/example/messaging-example/1.0-SNAPSHOT/messaging-example-1.0-SNAPSHOT.pom
+[main] INFO org.jfrog.build.extractor.maven.BuildInfoClientBuilder - Deploying artifact: http://192.168.0.110:8081/artifactory/libs-snapshot-local/message-processor/message-processor/1.0-SNAPSHOT/message-processor-1.0-SNAPSHOT.jar
+log4j:WARN No appenders could be found for logger (org.apache.http.client.protocol.RequestAddCookies).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+[main] INFO org.jfrog.build.extractor.maven.BuildInfoClientBuilder - Deploying artifact: http://192.168.0.110:8081/artifactory/libs-snapshot-local/message-processor/message-processor/1.0-SNAPSHOT/message-processor-1.0-SNAPSHOT.pom
+[main] INFO org.jfrog.build.extractor.maven.BuildInfoClientBuilder - Deploying artifact: http://192.168.0.110:8081/artifactory/libs-snapshot-local/com/github/mzagar/messaging/example/messaging-example/1.0-SNAPSHOT/messaging-example-1.0-SNAPSHOT.pom
+[main] INFO org.jfrog.build.extractor.maven.BuildInfoClientBuilder - Deploying artifact: http://192.168.0.110:8081/artifactory/libs-snapshot-local/messaging-gateway/message-gateway/1.0-SNAPSHOT/message-gateway-1.0-SNAPSHOT.war
+[main] INFO org.jfrog.build.extractor.maven.BuildInfoClientBuilder - Deploying artifact: http://192.168.0.110:8081/artifactory/libs-snapshot-local/messaging-gateway/message-gateway/1.0-SNAPSHOT/message-gateway-1.0-SNAPSHOT.pom
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - ------------------------------------------------------------------------
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - Reactor Summary:
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - 
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - message-processor .................................. SUCCESS [ 25.924 s]
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - message-gateway .................................... SUCCESS [ 13.274 s]
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - messaging-example .................................. SUCCESS [  0.075 s]
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - ------------------------------------------------------------------------
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - BUILD SUCCESS
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - ------------------------------------------------------------------------
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - Total time: 04:18 min
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - Finished at: 2017-04-09T01:13:33+03:00
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - Final Memory: 19M/50M
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - ------------------------------------------------------------------------
+[Pipeline] stage (Publish build info)
+Using the ‘stage’ step without a block argument is deprecated
+Entering stage Publish build info
+Proceeding
+[Pipeline] publishBuildInfo
+Deploying build info to: http://192.168.0.110:8081/artifactory/api/build
+Build successfully deployed. Browse it in Artifactory under http://192.168.0.110:8081/artifactory/webapp/builds/infobip_pipe1/35
+[Pipeline] stage (Copy to Staging env)
+Using the ‘stage’ step without a block argument is deprecated
+Entering stage Copy to Staging env
+Proceeding
+[Pipeline] sh
+[infobip_pipe1] Running shell script
++ sudo -u root mkdir /opt/infobip-message/
+mkdir: cannot create directory ‘/opt/infobip-message/’: File exists
++ true
+[Pipeline] sh
+[infobip_pipe1] Running shell script
++ sudo -u root rm -rf /opt/infobip-message/Dockerfile /opt/infobip-message/message-gateway /opt/infobip-message/message-processor /opt/infobip-message/pipline.groovy /opt/infobip-message/README.md /opt/infobip-message/start_app.sh
+[Pipeline] sh
+[infobip_pipe1] Running shell script
++ sudo -u root rm -rf /opt/infobip-message/. /opt/infobip-message/.. /opt/infobip-message/.git
+rm: refusing to remove ‘.’ or ‘..’ directory: skipping ‘/opt/infobip-message/.’
+rm: refusing to remove ‘.’ or ‘..’ directory: skipping ‘/opt/infobip-message/..’
++ true
+[Pipeline] sh
+[infobip_pipe1] Running shell script
++ sudo -u root git clone https://github.com/flyer8/infobip-message.git /opt/infobip-message/
+Cloning into '/opt/infobip-message'...
+[Pipeline] sh
+[infobip_pipe1] Running shell script
++ sudo -u root cp -rf message-gateway/ /opt/infobip-message/
+[Pipeline] sh
+[infobip_pipe1] Running shell script
++ sudo -u root cp -rf message-processor/ /opt/infobip-message/
+[Pipeline] stage (Deploy to Docker)
+Using the ‘stage’ step without a block argument is deprecated
+Entering stage Deploy to Docker
+Proceeding
+[Pipeline] sh
+[infobip_pipe1] Running shell script
++ docker rm -f -v message
+message
+[Pipeline] sh
+[infobip_pipe1] Running shell script
++ docker rmi infobip/message
+Untagged: infobip/message:latest
+Deleted: sha256:76f9513198fb47ffe2d2ddb875bfafd3c16626194e0ab811bdedf115e2c623c5
+Deleted: sha256:16730b04f9f552680cf0631c6783d44ec3e4cd71cb1b6525116591f48b9b0f8a
+Deleted: sha256:3ce270f6623e21f54f103a168d2deb3549b83009a995ab6a5716b1742e7da010
+Deleted: sha256:69be6f05e1bde2c1878966edf247907c9d266681be8c285486e1d1047999aa5a
+Deleted: sha256:956f69d0176bf1e1fbdc8c9da1285bb7d8af387bfc1cb7c18e18e09e3ee76d54
+Deleted: sha256:0141300586e9bef778246bf514ce23868aa7088a5b536dc861b15220d494d7a3
+Deleted: sha256:0ace9dd4bf80e5dd84c7dd16844340556e51f8e74c41a48e6a1f71c03c6c10bb
+Deleted: sha256:1e78da4996b0e7ebd666ef055f7a8c5f8ec0930c2c2e11719508388feabc9e2e
+Deleted: sha256:cc3baabbce0f9c5cd8558c34729a8d0b8a9c03ec8a3362aef8339bdd8df9fc32
+Deleted: sha256:50d25bbc3f41fa7a32be3ce39b1a30acd7a288316abb5b3f8ca67c838bc3e505
+Deleted: sha256:f54c73922c1884dc3effc4f1626b122491416c09d9685c7560e98b13e9cb6bf1
+Deleted: sha256:f8633253215286e7f66f5f21c54ee066583ba567c9bd58a1cc1943ac3440ba6a
+Deleted: sha256:649096bb605b7397ad164809fbcf98daf146b6b3f1e8c85d13286bf5268c9dfa
+Deleted: sha256:14eb01657dbc3af978cc1b63bb5982ea6c1e2a37a541c81d7ff2f09ffe08a658
+Deleted: sha256:3b9c56124adb67e9fe2644ce1910ae3c6b940a4947cae973db1069be699d78e5
+Deleted: sha256:bd6eeac2b608b4bf3153a5a08af8e77d7321bcb47c57651846087786e8fb29d6
+Deleted: sha256:6a72ee11d5142edde2a394798755c073d1d7849acfbe7241f9117dfd7c261a87
+Deleted: sha256:29ee20769aae14d55cd39bab986ddfa6532d26f6a86081211c255a55411d8410
+Deleted: sha256:1032fe69189fd5e8b3ea0e1fcf35aa700f5a5a179830460894897168910000b8
+Deleted: sha256:130bf32f6a0358a7ea5ce7aa48cd384aeb0ce8d70a24ae5b42ef79559e0df3a1
+Deleted: sha256:a257fb5b63408b7e89b88ed42aebc183aa258f49c5a113bd062b061447f18556
+Deleted: sha256:74efdf9d6217b2ef85ade86bbed6f57f2f12715e87d99caeb4cc46473425de4f
+Deleted: sha256:ff902cb19a6cbe052ee6d8790074c34ed6d2994759d94e7b5864203971eecf5e
+Deleted: sha256:5785ab5710a6945f270da3c1cb57ba751766aca603db0126eaa295545f628015
+Deleted: sha256:a9d18de02a965294a895272b8f11f1ebe4ad3312aba6cfc22594dfb1b33d5aa9
+Deleted: sha256:a368261e94d4b18d57c48473ff55dac349181521843ee6b05c2128b5b1f98ea7
+Deleted: sha256:02c67737474792274d41f78a54917de185337ef0a56eab30043afb6e33c97e30
+Deleted: sha256:647f70cd335b7fa1fa41f6e6b3e7de8c97cbee8e455589edcbbe9389d1a7b13c
+Deleted: sha256:afeb94ec86902f88bfd6a64d538741bb5e9b892321bfa7b74fc6cf546d800838
+[Pipeline] sh
+[infobip_pipe1] Running shell script
++ docker build --rm -t infobip/message /opt/infobip-message
+Sending build context to Docker daemon 4.754 MB
+
+Step 1/20 : FROM centos
+ ---> a8493f5f50ff
+Step 2/20 : MAINTAINER flyer8 "flyer8@yandex.ru"
+ ---> Running in d1a68e0508ee
+ ---> 59987b9aca66
+Removing intermediate container d1a68e0508ee
+Step 3/20 : ENV container docker
+ ---> Running in 81f77dcd091f
+ ---> 2f0c66f0aeb9
+Removing intermediate container 81f77dcd091f
+Step 4/20 : ARG JAVA_VERSION=1.8.0
+ ---> Running in 9285e9ae15ac
+ ---> de95b7cb913d
+Removing intermediate container 9285e9ae15ac
+Step 5/20 : ARG MAVEN_VERSION=3.3.9
+ ---> Running in c06802ea92d2
+ ---> 011c4df67adb
+Removing intermediate container c06802ea92d2
+Step 6/20 : ENV JAVA_HOME /usr/lib/jvm/java
+ ---> Running in 1206e54ee892
+ ---> 35705636c63c
+Removing intermediate container 1206e54ee892
+Step 7/20 : ENV MAVEN_HOME /usr/share/maven
+ ---> Running in 68775f6b6c75
+ ---> 95f829fbb247
+Removing intermediate container 68775f6b6c75
+Step 8/20 : RUN yum update -y
+ ---> Running in 373975dda89e
+Loaded plugins: fastestmirror, ovl
+Determining fastest mirrors
+ * base: centos-mirror.rbc.ru
+ * extras: centos-mirror.rbc.ru
+ * updates: centos-mirror.rbc.ru
+No packages marked for update
+ ---> fa0286cf2640
+Removing intermediate container 373975dda89e
+Step 9/20 : RUN yum install -y java-$JAVA_VERSION-openjdk-devel
+ ---> Running in a10e3d267662
+Loaded plugins: fastestmirror, ovl
+Loading mirror speeds from cached hostfile
+ * base: centos-mirror.rbc.ru
+ * extras: centos-mirror.rbc.ru
+ * updates: centos-mirror.rbc.ru
+Resolving Dependencies
+--> Running transaction check
+---> Package java-1.8.0-openjdk-devel.x86_64 1:1.8.0.121-0.b13.el7_3 will be installed
+--> Processing Dependency: java-1.8.0-openjdk = 1:1.8.0.121-0.b13.el7_3 for package: 1:java-1.8.0-openjdk-devel-1.8.0.121-0.b13.el7_3.x86_64
+--> Processing Dependency: libawt_xawt.so(SUNWprivate_1.1)(64bit) for package: 1:java-1.8.0-openjdk-devel-1.8.0.121-0.b13.el7_3.x86_64
+--> Processing Dependency: libjvm.so()(64bit) for package: 1:java-1.8.0-openjdk-devel-1.8.0.121-0.b13.el7_3.x86_64
+--> Processing Dependency: libjava.so()(64bit) for package: 1:java-1.8.0-openjdk-devel-1.8.0.121-0.b13.el7_3.x86_64
+--> Processing Dependency: libawt_xawt.so()(64bit) for package: 1:java-1.8.0-openjdk-devel-1.8.0.121-0.b13.el7_3.x86_64
+--> Processing Dependency: libawt.so()(64bit) for package: 1:java-1.8.0-openjdk-devel-1.8.0.121-0.b13.el7_3.x86_64
+--> Processing Dependency: libX11.so.6()(64bit) for package: 1:java-1.8.0-openjdk-devel-1.8.0.121-0.b13.el7_3.x86_64
+--> Running transaction check
+---> Package java-1.8.0-openjdk.x86_64 1:1.8.0.121-0.b13.el7_3 will be installed
+--> Processing Dependency: xorg-x11-fonts-Type1 for package: 1:java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64
+--> Processing Dependency: libpng15.so.15(PNG15_0)(64bit) for package: 1:java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64
+--> Processing Dependency: libjpeg.so.62(LIBJPEG_6.2)(64bit) for package: 1:java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64
+--> Processing Dependency: libasound.so.2(ALSA_0.9.0rc4)(64bit) for package: 1:java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64
+--> Processing Dependency: libasound.so.2(ALSA_0.9)(64bit) for package: 1:java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64
+--> Processing Dependency: fontconfig(x86-64) for package: 1:java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64
+--> Processing Dependency: libpng15.so.15()(64bit) for package: 1:java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64
+--> Processing Dependency: libjpeg.so.62()(64bit) for package: 1:java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64
+--> Processing Dependency: libgif.so.4()(64bit) for package: 1:java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64
+--> Processing Dependency: libasound.so.2()(64bit) for package: 1:java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64
+--> Processing Dependency: libXtst.so.6()(64bit) for package: 1:java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64
+--> Processing Dependency: libXrender.so.1()(64bit) for package: 1:java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64
+--> Processing Dependency: libXi.so.6()(64bit) for package: 1:java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64
+--> Processing Dependency: libXext.so.6()(64bit) for package: 1:java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64
+--> Processing Dependency: libXcomposite.so.1()(64bit) for package: 1:java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64
+---> Package java-1.8.0-openjdk-headless.x86_64 1:1.8.0.121-0.b13.el7_3 will be installed
+--> Processing Dependency: tzdata-java >= 2015d for package: 1:java-1.8.0-openjdk-headless-1.8.0.121-0.b13.el7_3.x86_64
+--> Processing Dependency: copy-jdk-configs >= 1.1-3 for package: 1:java-1.8.0-openjdk-headless-1.8.0.121-0.b13.el7_3.x86_64
+--> Processing Dependency: lksctp-tools(x86-64) for package: 1:java-1.8.0-openjdk-headless-1.8.0.121-0.b13.el7_3.x86_64
+--> Processing Dependency: jpackage-utils for package: 1:java-1.8.0-openjdk-headless-1.8.0.121-0.b13.el7_3.x86_64
+--> Processing Dependency: libfreetype.so.6()(64bit) for package: 1:java-1.8.0-openjdk-headless-1.8.0.121-0.b13.el7_3.x86_64
+---> Package libX11.x86_64 0:1.6.3-3.el7 will be installed
+--> Processing Dependency: libX11-common >= 1.6.3-3.el7 for package: libX11-1.6.3-3.el7.x86_64
+--> Processing Dependency: libxcb.so.1()(64bit) for package: libX11-1.6.3-3.el7.x86_64
+--> Running transaction check
+---> Package alsa-lib.x86_64 0:1.1.1-1.el7 will be installed
+---> Package copy-jdk-configs.noarch 0:1.2-1.el7 will be installed
+---> Package fontconfig.x86_64 0:2.10.95-10.el7 will be installed
+--> Processing Dependency: fontpackages-filesystem for package: fontconfig-2.10.95-10.el7.x86_64
+---> Package freetype.x86_64 0:2.4.11-12.el7 will be installed
+---> Package giflib.x86_64 0:4.1.6-9.el7 will be installed
+--> Processing Dependency: libSM.so.6()(64bit) for package: giflib-4.1.6-9.el7.x86_64
+--> Processing Dependency: libICE.so.6()(64bit) for package: giflib-4.1.6-9.el7.x86_64
+---> Package javapackages-tools.noarch 0:3.4.1-11.el7 will be installed
+--> Processing Dependency: python-javapackages = 3.4.1-11.el7 for package: javapackages-tools-3.4.1-11.el7.noarch
+--> Processing Dependency: libxslt for package: javapackages-tools-3.4.1-11.el7.noarch
+---> Package libX11-common.noarch 0:1.6.3-3.el7 will be installed
+---> Package libXcomposite.x86_64 0:0.4.4-4.1.el7 will be installed
+---> Package libXext.x86_64 0:1.3.3-3.el7 will be installed
+---> Package libXi.x86_64 0:1.7.4-2.el7 will be installed
+---> Package libXrender.x86_64 0:0.9.8-2.1.el7 will be installed
+---> Package libXtst.x86_64 0:1.2.2-2.1.el7 will be installed
+---> Package libjpeg-turbo.x86_64 0:1.2.90-5.el7 will be installed
+---> Package libpng.x86_64 2:1.5.13-7.el7_2 will be installed
+---> Package libxcb.x86_64 0:1.11-4.el7 will be installed
+--> Processing Dependency: libXau.so.6()(64bit) for package: libxcb-1.11-4.el7.x86_64
+---> Package lksctp-tools.x86_64 0:1.0.17-2.el7 will be installed
+---> Package tzdata-java.noarch 0:2017b-1.el7 will be installed
+---> Package xorg-x11-fonts-Type1.noarch 0:7.5-9.el7 will be installed
+--> Processing Dependency: ttmkfdir for package: xorg-x11-fonts-Type1-7.5-9.el7.noarch
+--> Processing Dependency: ttmkfdir for package: xorg-x11-fonts-Type1-7.5-9.el7.noarch
+--> Processing Dependency: mkfontdir for package: xorg-x11-fonts-Type1-7.5-9.el7.noarch
+--> Processing Dependency: mkfontdir for package: xorg-x11-fonts-Type1-7.5-9.el7.noarch
+--> Running transaction check
+---> Package fontpackages-filesystem.noarch 0:1.44-8.el7 will be installed
+---> Package libICE.x86_64 0:1.0.9-2.el7 will be installed
+---> Package libSM.x86_64 0:1.2.2-2.el7 will be installed
+---> Package libXau.x86_64 0:1.0.8-2.1.el7 will be installed
+---> Package libxslt.x86_64 0:1.1.28-5.el7 will be installed
+---> Package python-javapackages.noarch 0:3.4.1-11.el7 will be installed
+--> Processing Dependency: python-lxml for package: python-javapackages-3.4.1-11.el7.noarch
+---> Package ttmkfdir.x86_64 0:3.0.9-42.el7 will be installed
+---> Package xorg-x11-font-utils.x86_64 1:7.5-20.el7 will be installed
+--> Processing Dependency: libfontenc.so.1()(64bit) for package: 1:xorg-x11-font-utils-7.5-20.el7.x86_64
+--> Processing Dependency: libXfont.so.1()(64bit) for package: 1:xorg-x11-font-utils-7.5-20.el7.x86_64
+--> Running transaction check
+---> Package libXfont.x86_64 0:1.5.1-2.el7 will be installed
+---> Package libfontenc.x86_64 0:1.1.2-3.el7 will be installed
+---> Package python-lxml.x86_64 0:3.2.1-4.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                      Arch    Version                    Repository
+                                                                           Size
+================================================================================
+Installing:
+ java-1.8.0-openjdk-devel     x86_64  1:1.8.0.121-0.b13.el7_3    updates  9.7 M
+Installing for dependencies:
+ alsa-lib                     x86_64  1.1.1-1.el7                base     415 k
+ copy-jdk-configs             noarch  1.2-1.el7                  base      14 k
+ fontconfig                   x86_64  2.10.95-10.el7             base     229 k
+ fontpackages-filesystem      noarch  1.44-8.el7                 base     9.9 k
+ freetype                     x86_64  2.4.11-12.el7              base     391 k
+ giflib                       x86_64  4.1.6-9.el7                base      40 k
+ java-1.8.0-openjdk           x86_64  1:1.8.0.121-0.b13.el7_3    updates  232 k
+ java-1.8.0-openjdk-headless  x86_64  1:1.8.0.121-0.b13.el7_3    updates   31 M
+ javapackages-tools           noarch  3.4.1-11.el7               base      73 k
+ libICE                       x86_64  1.0.9-2.el7                base      65 k
+ libSM                        x86_64  1.2.2-2.el7                base      39 k
+ libX11                       x86_64  1.6.3-3.el7                base     606 k
+ libX11-common                noarch  1.6.3-3.el7                base     162 k
+ libXau                       x86_64  1.0.8-2.1.el7              base      29 k
+ libXcomposite                x86_64  0.4.4-4.1.el7              base      22 k
+ libXext                      x86_64  1.3.3-3.el7                base      39 k
+ libXfont                     x86_64  1.5.1-2.el7                base     150 k
+ libXi                        x86_64  1.7.4-2.el7                base      40 k
+ libXrender                   x86_64  0.9.8-2.1.el7              base      25 k
+ libXtst                      x86_64  1.2.2-2.1.el7              base      20 k
+ libfontenc                   x86_64  1.1.2-3.el7                base      30 k
+ libjpeg-turbo                x86_64  1.2.90-5.el7               base     134 k
+ libpng                       x86_64  2:1.5.13-7.el7_2           base     213 k
+ libxcb                       x86_64  1.11-4.el7                 base     189 k
+ libxslt                      x86_64  1.1.28-5.el7               base     242 k
+ lksctp-tools                 x86_64  1.0.17-2.el7               base      88 k
+ python-javapackages          noarch  3.4.1-11.el7               base      31 k
+ python-lxml                  x86_64  3.2.1-4.el7                base     758 k
+ ttmkfdir                     x86_64  3.0.9-42.el7               base      48 k
+ tzdata-java                  noarch  2017b-1.el7                updates  183 k
+ xorg-x11-font-utils          x86_64  1:7.5-20.el7               base      87 k
+ xorg-x11-fonts-Type1         noarch  7.5-9.el7                  base     521 k
+
+Transaction Summary
+================================================================================
+Install  1 Package (+32 Dependent packages)
+
+Total download size: 46 M
+Installed size: 156 M
+Downloading packages:
+Public key for fontpackages-filesystem-1.44-8.el7.noarch.rpm is not installed
+[91mwarning: /var/cache/yum/x86_64/7/base/packages/fontpackages-filesystem-1.44-8.el7.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID f4a80eb5: NOKEY
+[0mPublic key for java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64.rpm is not installed
+--------------------------------------------------------------------------------
+Total                                              2.1 MB/s |  46 MB  00:21     
+Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+[91mImporting GPG key 0xF4A80EB5:
+ Userid     : "CentOS-7 Key (CentOS 7 Official Signing Key) <security@centos.org>"
+ Fingerprint: 6341 ab27 53d7 8a78 a7c2 7bb1 24c6 a8a7 f4a8 0eb5
+ Package    : centos-release-7-3.1611.el7.centos.x86_64 (@CentOS)
+ From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+[0mRunning transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : freetype-2.4.11-12.el7.x86_64                               1/33 
+  Installing : libICE-1.0.9-2.el7.x86_64                                   2/33 
+  Installing : libxslt-1.1.28-5.el7.x86_64                                 3/33 
+  Installing : libfontenc-1.1.2-3.el7.x86_64                               4/33 
+  Installing : libjpeg-turbo-1.2.90-5.el7.x86_64                           5/33 
+  Installing : libXfont-1.5.1-2.el7.x86_64                                 6/33 
+  Installing : 1:xorg-x11-font-utils-7.5-20.el7.x86_64                     7/33 
+  Installing : python-lxml-3.2.1-4.el7.x86_64                              8/33 
+  Installing : python-javapackages-3.4.1-11.el7.noarch                     9/33 
+  Installing : javapackages-tools-3.4.1-11.el7.noarch                     10/33 
+  Installing : libSM-1.2.2-2.el7.x86_64                                   11/33 
+  Installing : ttmkfdir-3.0.9-42.el7.x86_64                               12/33 
+  Installing : libX11-common-1.6.3-3.el7.noarch                           13/33 
+  Installing : alsa-lib-1.1.1-1.el7.x86_64                                14/33 
+  Installing : libXau-1.0.8-2.1.el7.x86_64                                15/33 
+  Installing : libxcb-1.11-4.el7.x86_64                                   16/33 
+  Installing : libX11-1.6.3-3.el7.x86_64                                  17/33 
+  Installing : libXext-1.3.3-3.el7.x86_64                                 18/33 
+  Installing : libXi-1.7.4-2.el7.x86_64                                   19/33 
+  Installing : libXtst-1.2.2-2.1.el7.x86_64                               20/33 
+  Installing : giflib-4.1.6-9.el7.x86_64                                  21/33 
+  Installing : libXcomposite-0.4.4-4.1.el7.x86_64                         22/33 
+  Installing : libXrender-0.9.8-2.1.el7.x86_64                            23/33 
+  Installing : tzdata-java-2017b-1.el7.noarch                             24/33 
+  Installing : copy-jdk-configs-1.2-1.el7.noarch                          25/33 
+  Installing : lksctp-tools-1.0.17-2.el7.x86_64                           26/33 
+  Installing : 1:java-1.8.0-openjdk-headless-1.8.0.121-0.b13.el7_3.x86_   27/33 
+  Installing : fontpackages-filesystem-1.44-8.el7.noarch                  28/33 
+  Installing : fontconfig-2.10.95-10.el7.x86_64                           29/33 
+  Installing : xorg-x11-fonts-Type1-7.5-9.el7.noarch                      30/33 
+  Installing : 2:libpng-1.5.13-7.el7_2.x86_64                             31/33 
+  Installing : 1:java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64          32/33 
+  Installing : 1:java-1.8.0-openjdk-devel-1.8.0.121-0.b13.el7_3.x86_64    33/33 
+  Verifying  : libXext-1.3.3-3.el7.x86_64                                  1/33 
+  Verifying  : 2:libpng-1.5.13-7.el7_2.x86_64                              2/33 
+  Verifying  : giflib-4.1.6-9.el7.x86_64                                   3/33 
+  Verifying  : libjpeg-turbo-1.2.90-5.el7.x86_64                           4/33 
+  Verifying  : libfontenc-1.1.2-3.el7.x86_64                               5/33 
+  Verifying  : libXtst-1.2.2-2.1.el7.x86_64                                6/33 
+  Verifying  : python-lxml-3.2.1-4.el7.x86_64                              7/33 
+  Verifying  : libxcb-1.11-4.el7.x86_64                                    8/33 
+  Verifying  : 1:java-1.8.0-openjdk-headless-1.8.0.121-0.b13.el7_3.x86_    9/33 
+  Verifying  : 1:java-1.8.0-openjdk-devel-1.8.0.121-0.b13.el7_3.x86_64    10/33 
+  Verifying  : ttmkfdir-3.0.9-42.el7.x86_64                               11/33 
+  Verifying  : fontpackages-filesystem-1.44-8.el7.noarch                  12/33 
+  Verifying  : python-javapackages-3.4.1-11.el7.noarch                    13/33 
+  Verifying  : libXcomposite-0.4.4-4.1.el7.x86_64                         14/33 
+  Verifying  : libXrender-0.9.8-2.1.el7.x86_64                            15/33 
+  Verifying  : lksctp-tools-1.0.17-2.el7.x86_64                           16/33 
+  Verifying  : copy-jdk-configs-1.2-1.el7.noarch                          17/33 
+  Verifying  : xorg-x11-fonts-Type1-7.5-9.el7.noarch                      18/33 
+  Verifying  : libxslt-1.1.28-5.el7.x86_64                                19/33 
+  Verifying  : tzdata-java-2017b-1.el7.noarch                             20/33 
+  Verifying  : libICE-1.0.9-2.el7.x86_64                                  21/33 
+  Verifying  : libXfont-1.5.1-2.el7.x86_64                                22/33 
+  Verifying  : javapackages-tools-3.4.1-11.el7.noarch                     23/33 
+  Verifying  : freetype-2.4.11-12.el7.x86_64                              24/33 
+  Verifying  : libXi-1.7.4-2.el7.x86_64                                   25/33 
+  Verifying  : libXau-1.0.8-2.1.el7.x86_64                                26/33 
+  Verifying  : libSM-1.2.2-2.el7.x86_64                                   27/33 
+  Verifying  : alsa-lib-1.1.1-1.el7.x86_64                                28/33 
+  Verifying  : libX11-1.6.3-3.el7.x86_64                                  29/33 
+  Verifying  : 1:java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64          30/33 
+  Verifying  : libX11-common-1.6.3-3.el7.noarch                           31/33 
+  Verifying  : fontconfig-2.10.95-10.el7.x86_64                           32/33 
+  Verifying  : 1:xorg-x11-font-utils-7.5-20.el7.x86_64                    33/33 
+
+Installed:
+  java-1.8.0-openjdk-devel.x86_64 1:1.8.0.121-0.b13.el7_3                       
+
+Dependency Installed:
+  alsa-lib.x86_64 0:1.1.1-1.el7                                                 
+  copy-jdk-configs.noarch 0:1.2-1.el7                                           
+  fontconfig.x86_64 0:2.10.95-10.el7                                            
+  fontpackages-filesystem.noarch 0:1.44-8.el7                                   
+  freetype.x86_64 0:2.4.11-12.el7                                               
+  giflib.x86_64 0:4.1.6-9.el7                                                   
+  java-1.8.0-openjdk.x86_64 1:1.8.0.121-0.b13.el7_3                             
+  java-1.8.0-openjdk-headless.x86_64 1:1.8.0.121-0.b13.el7_3                    
+  javapackages-tools.noarch 0:3.4.1-11.el7                                      
+  libICE.x86_64 0:1.0.9-2.el7                                                   
+  libSM.x86_64 0:1.2.2-2.el7                                                    
+  libX11.x86_64 0:1.6.3-3.el7                                                   
+  libX11-common.noarch 0:1.6.3-3.el7                                            
+  libXau.x86_64 0:1.0.8-2.1.el7                                                 
+  libXcomposite.x86_64 0:0.4.4-4.1.el7                                          
+  libXext.x86_64 0:1.3.3-3.el7                                                  
+  libXfont.x86_64 0:1.5.1-2.el7                                                 
+  libXi.x86_64 0:1.7.4-2.el7                                                    
+  libXrender.x86_64 0:0.9.8-2.1.el7                                             
+  libXtst.x86_64 0:1.2.2-2.1.el7                                                
+  libfontenc.x86_64 0:1.1.2-3.el7                                               
+  libjpeg-turbo.x86_64 0:1.2.90-5.el7                                           
+  libpng.x86_64 2:1.5.13-7.el7_2                                                
+  libxcb.x86_64 0:1.11-4.el7                                                    
+  libxslt.x86_64 0:1.1.28-5.el7                                                 
+  lksctp-tools.x86_64 0:1.0.17-2.el7                                            
+  python-javapackages.noarch 0:3.4.1-11.el7                                     
+  python-lxml.x86_64 0:3.2.1-4.el7                                              
+  ttmkfdir.x86_64 0:3.0.9-42.el7                                                
+  tzdata-java.noarch 0:2017b-1.el7                                              
+  xorg-x11-font-utils.x86_64 1:7.5-20.el7                                       
+  xorg-x11-fonts-Type1.noarch 0:7.5-9.el7                                       
+
+Complete!
+ ---> e25bbd071fd0
+Removing intermediate container a10e3d267662
+Step 10/20 : RUN mkdir -p $MAVEN_HOME /usr/share/maven/ref       && curl -fsSL http://apache.osuosl.org/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz       | tar -xzC $MAVEN_HOME --strip-components=1       && ln -s $MAVEN_HOME/bin/mvn /usr/bin/mvn
+ ---> Running in 0368000c8445
+ ---> 20c2445ed0f1
+Removing intermediate container 0368000c8445
+Step 11/20 : RUN yum install epel-release -y
+ ---> Running in 1eddc023df2e
+Loaded plugins: fastestmirror, ovl
+Loading mirror speeds from cached hostfile
+ * base: centos-mirror.rbc.ru
+ * extras: centos-mirror.rbc.ru
+ * updates: centos-mirror.rbc.ru
+Resolving Dependencies
+--> Running transaction check
+---> Package epel-release.noarch 0:7-9 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                Arch             Version         Repository        Size
+================================================================================
+Installing:
+ epel-release           noarch           7-9             extras            14 k
+
+Transaction Summary
+================================================================================
+Install  1 Package
+
+Total download size: 14 k
+Installed size: 24 k
+Downloading packages:
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : epel-release-7-9.noarch                                      1/1 
+  Verifying  : epel-release-7-9.noarch                                      1/1 
+
+Installed:
+  epel-release.noarch 0:7-9                                                     
+
+Complete!
+ ---> e0aef19311db
+Removing intermediate container 1eddc023df2e
+Step 12/20 : RUN yum install rabbitmq-server.noarch -y
+ ---> Running in 23b57c7e62ed
+Loaded plugins: fastestmirror, ovl
+Loading mirror speeds from cached hostfile
+ * base: centos-mirror.rbc.ru
+ * epel: fedora-mirror01.rbc.ru
+ * extras: centos-mirror.rbc.ru
+ * updates: centos-mirror.rbc.ru
+Resolving Dependencies
+--> Running transaction check
+---> Package rabbitmq-server.noarch 0:3.3.5-33.el7 will be installed
+--> Processing Dependency: erlang-xmerl >= R12B-3 for package: rabbitmq-server-3.3.5-33.el7.noarch
+--> Processing Dependency: erlang-tools >= R12B-3 for package: rabbitmq-server-3.3.5-33.el7.noarch
+--> Processing Dependency: erlang-stdlib >= R12B-3 for package: rabbitmq-server-3.3.5-33.el7.noarch
+--> Processing Dependency: erlang-ssl >= R12B-3 for package: rabbitmq-server-3.3.5-33.el7.noarch
+--> Processing Dependency: erlang-sasl >= R12B-3 for package: rabbitmq-server-3.3.5-33.el7.noarch
+--> Processing Dependency: erlang-public_key >= R12B-3 for package: rabbitmq-server-3.3.5-33.el7.noarch
+--> Processing Dependency: erlang-os_mon >= R12B-3 for package: rabbitmq-server-3.3.5-33.el7.noarch
+--> Processing Dependency: erlang-mnesia >= R12B-3 for package: rabbitmq-server-3.3.5-33.el7.noarch
+--> Processing Dependency: erlang-kernel >= R12B-3 for package: rabbitmq-server-3.3.5-33.el7.noarch
+--> Processing Dependency: erlang-erts >= R12B-3 for package: rabbitmq-server-3.3.5-33.el7.noarch
+--> Processing Dependency: logrotate for package: rabbitmq-server-3.3.5-33.el7.noarch
+--> Processing Dependency: erlang-sd_notify for package: rabbitmq-server-3.3.5-33.el7.noarch
+--> Running transaction check
+---> Package erlang-erts.x86_64 0:R16B-03.18.el7 will be installed
+---> Package erlang-kernel.x86_64 0:R16B-03.18.el7 will be installed
+---> Package erlang-mnesia.x86_64 0:R16B-03.18.el7 will be installed
+---> Package erlang-os_mon.x86_64 0:R16B-03.18.el7 will be installed
+--> Processing Dependency: erlang-snmp(x86-64) = R16B-03.18.el7 for package: erlang-os_mon-R16B-03.18.el7.x86_64
+--> Processing Dependency: erlang-otp_mibs(x86-64) = R16B-03.18.el7 for package: erlang-os_mon-R16B-03.18.el7.x86_64
+---> Package erlang-public_key.x86_64 0:R16B-03.18.el7 will be installed
+--> Processing Dependency: erlang-crypto(x86-64) = R16B-03.18.el7 for package: erlang-public_key-R16B-03.18.el7.x86_64
+--> Processing Dependency: erlang-asn1(x86-64) = R16B-03.18.el7 for package: erlang-public_key-R16B-03.18.el7.x86_64
+---> Package erlang-sasl.x86_64 0:R16B-03.18.el7 will be installed
+---> Package erlang-sd_notify.x86_64 0:0.1-1.el7 will be installed
+---> Package erlang-ssl.x86_64 0:R16B-03.18.el7 will be installed
+---> Package erlang-stdlib.x86_64 0:R16B-03.18.el7 will be installed
+--> Processing Dependency: erlang-compiler(x86-64) = R16B-03.18.el7 for package: erlang-stdlib-R16B-03.18.el7.x86_64
+---> Package erlang-tools.x86_64 0:R16B-03.18.el7 will be installed
+--> Processing Dependency: erlang-runtime_tools(x86-64) = R16B-03.18.el7 for package: erlang-tools-R16B-03.18.el7.x86_64
+--> Processing Dependency: erlang-inets(x86-64) = R16B-03.18.el7 for package: erlang-tools-R16B-03.18.el7.x86_64
+---> Package erlang-xmerl.x86_64 0:R16B-03.18.el7 will be installed
+---> Package logrotate.x86_64 0:3.8.6-12.el7 will be installed
+--> Running transaction check
+---> Package erlang-asn1.x86_64 0:R16B-03.18.el7 will be installed
+---> Package erlang-compiler.x86_64 0:R16B-03.18.el7 will be installed
+--> Processing Dependency: erlang-hipe(x86-64) = R16B-03.18.el7 for package: erlang-compiler-R16B-03.18.el7.x86_64
+---> Package erlang-crypto.x86_64 0:R16B-03.18.el7 will be installed
+---> Package erlang-inets.x86_64 0:R16B-03.18.el7 will be installed
+---> Package erlang-otp_mibs.x86_64 0:R16B-03.18.el7 will be installed
+---> Package erlang-runtime_tools.x86_64 0:R16B-03.18.el7 will be installed
+---> Package erlang-snmp.x86_64 0:R16B-03.18.el7 will be installed
+--> Running transaction check
+---> Package erlang-hipe.x86_64 0:R16B-03.18.el7 will be installed
+--> Processing Dependency: erlang-syntax_tools(x86-64) = R16B-03.18.el7 for package: erlang-hipe-R16B-03.18.el7.x86_64
+--> Running transaction check
+---> Package erlang-syntax_tools.x86_64 0:R16B-03.18.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                    Arch         Version               Repository  Size
+================================================================================
+Installing:
+ rabbitmq-server            noarch       3.3.5-33.el7          epel       4.0 M
+Installing for dependencies:
+ erlang-asn1                x86_64       R16B-03.18.el7        epel       758 k
+ erlang-compiler            x86_64       R16B-03.18.el7        epel       1.0 M
+ erlang-crypto              x86_64       R16B-03.18.el7        epel        86 k
+ erlang-erts                x86_64       R16B-03.18.el7        epel       2.5 M
+ erlang-hipe                x86_64       R16B-03.18.el7        epel       2.4 M
+ erlang-inets               x86_64       R16B-03.18.el7        epel       800 k
+ erlang-kernel              x86_64       R16B-03.18.el7        epel       1.1 M
+ erlang-mnesia              x86_64       R16B-03.18.el7        epel       700 k
+ erlang-os_mon              x86_64       R16B-03.18.el7        epel       115 k
+ erlang-otp_mibs            x86_64       R16B-03.18.el7        epel        32 k
+ erlang-public_key          x86_64       R16B-03.18.el7        epel       538 k
+ erlang-runtime_tools       x86_64       R16B-03.18.el7        epel       179 k
+ erlang-sasl                x86_64       R16B-03.18.el7        epel       293 k
+ erlang-sd_notify           x86_64       0.1-1.el7             epel       9.1 k
+ erlang-snmp                x86_64       R16B-03.18.el7        epel       1.5 M
+ erlang-ssl                 x86_64       R16B-03.18.el7        epel       588 k
+ erlang-stdlib              x86_64       R16B-03.18.el7        epel       2.2 M
+ erlang-syntax_tools        x86_64       R16B-03.18.el7        epel       336 k
+ erlang-tools               x86_64       R16B-03.18.el7        epel       566 k
+ erlang-xmerl               x86_64       R16B-03.18.el7        epel       998 k
+ logrotate                  x86_64       3.8.6-12.el7          base        68 k
+
+Transaction Summary
+================================================================================
+Install  1 Package (+21 Dependent packages)
+
+Total download size: 21 M
+Installed size: 36 M
+Downloading packages:
+[91mwarning: /var/cache/yum/x86_64/7/epel/packages/erlang-asn1-R16B-03.18.el7.x86_64.rpm: Header V3 RSA/SHA256 Signature, key ID 352c64e5: NOKEY
+[0mPublic key for erlang-asn1-R16B-03.18.el7.x86_64.rpm is not installed
+--------------------------------------------------------------------------------
+Total                                              1.5 MB/s |  21 MB  00:14     
+Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+[91mImporting GPG key 0x352C64E5:
+ Userid     : "Fedora EPEL (7) <epel@fedoraproject.org>"
+ Fingerprint: 91e9 7d7c 4a5e 96f1 7f3e 888f 6a2f aea2 352c 64e5
+ Package    : epel-release-7-9.noarch (@extras)
+ From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+[0mRunning transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : erlang-crypto-R16B-03.18.el7.x86_64                         1/22 
+  Installing : erlang-kernel-R16B-03.18.el7.x86_64                         2/22 
+  Installing : erlang-stdlib-R16B-03.18.el7.x86_64                         3/22 
+  Installing : erlang-erts-R16B-03.18.el7.x86_64                           4/22 
+  Installing : erlang-syntax_tools-R16B-03.18.el7.x86_64                   5/22 
+  Installing : erlang-compiler-R16B-03.18.el7.x86_64                       6/22 
+  Installing : erlang-hipe-R16B-03.18.el7.x86_64                           7/22 
+  Installing : erlang-mnesia-R16B-03.18.el7.x86_64                         8/22 
+  Installing : erlang-runtime_tools-R16B-03.18.el7.x86_64                  9/22 
+  Installing : erlang-snmp-R16B-03.18.el7.x86_64                          10/22 
+  Installing : erlang-otp_mibs-R16B-03.18.el7.x86_64                      11/22 
+  Installing : erlang-sd_notify-0.1-1.el7.x86_64                          12/22 
+  Installing : erlang-xmerl-R16B-03.18.el7.x86_64                         13/22 
+  Installing : erlang-asn1-R16B-03.18.el7.x86_64                          14/22 
+  Installing : erlang-public_key-R16B-03.18.el7.x86_64                    15/22 
+  Installing : erlang-ssl-R16B-03.18.el7.x86_64                           16/22 
+  Installing : erlang-inets-R16B-03.18.el7.x86_64                         17/22 
+  Installing : erlang-tools-R16B-03.18.el7.x86_64                         18/22 
+  Installing : erlang-sasl-R16B-03.18.el7.x86_64                          19/22 
+  Installing : erlang-os_mon-R16B-03.18.el7.x86_64                        20/22 
+  Installing : logrotate-3.8.6-12.el7.x86_64                              21/22 
+  Installing : rabbitmq-server-3.3.5-33.el7.noarch                        22/22 
+Failed to get D-Bus connection: Operation not permitted
+warning: %post(rabbitmq-server-3.3.5-33.el7.noarch) scriptlet failed, exit status 1
+[91mNon-fatal POSTIN scriptlet failure in rpm package rabbitmq-server-3.3.5-33.el7.noarch
+[0m  Verifying  : erlang-sd_notify-0.1-1.el7.x86_64                           1/22 
+  Verifying  : erlang-erts-R16B-03.18.el7.x86_64                           2/22 
+  Verifying  : erlang-stdlib-R16B-03.18.el7.x86_64                         3/22 
+  Verifying  : erlang-compiler-R16B-03.18.el7.x86_64                       4/22 
+  Verifying  : erlang-mnesia-R16B-03.18.el7.x86_64                         5/22 
+  Verifying  : erlang-crypto-R16B-03.18.el7.x86_64                         6/22 
+  Verifying  : erlang-hipe-R16B-03.18.el7.x86_64                           7/22 
+  Verifying  : erlang-inets-R16B-03.18.el7.x86_64                          8/22 
+  Verifying  : erlang-runtime_tools-R16B-03.18.el7.x86_64                  9/22 
+  Verifying  : erlang-public_key-R16B-03.18.el7.x86_64                    10/22 
+  Verifying  : erlang-sasl-R16B-03.18.el7.x86_64                          11/22 
+  Verifying  : rabbitmq-server-3.3.5-33.el7.noarch                        12/22 
+  Verifying  : erlang-kernel-R16B-03.18.el7.x86_64                        13/22 
+  Verifying  : erlang-ssl-R16B-03.18.el7.x86_64                           14/22 
+  Verifying  : erlang-xmerl-R16B-03.18.el7.x86_64                         15/22 
+  Verifying  : erlang-os_mon-R16B-03.18.el7.x86_64                        16/22 
+  Verifying  : erlang-otp_mibs-R16B-03.18.el7.x86_64                      17/22 
+  Verifying  : erlang-tools-R16B-03.18.el7.x86_64                         18/22 
+  Verifying  : erlang-snmp-R16B-03.18.el7.x86_64                          19/22 
+  Verifying  : erlang-syntax_tools-R16B-03.18.el7.x86_64                  20/22 
+  Verifying  : logrotate-3.8.6-12.el7.x86_64                              21/22 
+  Verifying  : erlang-asn1-R16B-03.18.el7.x86_64                          22/22 
+
+Installed:
+  rabbitmq-server.noarch 0:3.3.5-33.el7                                         
+
+Dependency Installed:
+  erlang-asn1.x86_64 0:R16B-03.18.el7                                           
+  erlang-compiler.x86_64 0:R16B-03.18.el7                                       
+  erlang-crypto.x86_64 0:R16B-03.18.el7                                         
+  erlang-erts.x86_64 0:R16B-03.18.el7                                           
+  erlang-hipe.x86_64 0:R16B-03.18.el7                                           
+  erlang-inets.x86_64 0:R16B-03.18.el7                                          
+  erlang-kernel.x86_64 0:R16B-03.18.el7                                         
+  erlang-mnesia.x86_64 0:R16B-03.18.el7                                         
+  erlang-os_mon.x86_64 0:R16B-03.18.el7                                         
+  erlang-otp_mibs.x86_64 0:R16B-03.18.el7                                       
+  erlang-public_key.x86_64 0:R16B-03.18.el7                                     
+  erlang-runtime_tools.x86_64 0:R16B-03.18.el7                                  
+  erlang-sasl.x86_64 0:R16B-03.18.el7                                           
+  erlang-sd_notify.x86_64 0:0.1-1.el7                                           
+  erlang-snmp.x86_64 0:R16B-03.18.el7                                           
+  erlang-ssl.x86_64 0:R16B-03.18.el7                                            
+  erlang-stdlib.x86_64 0:R16B-03.18.el7                                         
+  erlang-syntax_tools.x86_64 0:R16B-03.18.el7                                   
+  erlang-tools.x86_64 0:R16B-03.18.el7                                          
+  erlang-xmerl.x86_64 0:R16B-03.18.el7                                          
+  logrotate.x86_64 0:3.8.6-12.el7                                               
+
+Complete!
+ ---> ecc909f1b7bd
+Removing intermediate container 23b57c7e62ed
+Step 13/20 : RUN mkdir /opt/message-gateway
+ ---> Running in 0f015d1743d8
+ ---> 6e8edc6a36d9
+Removing intermediate container 0f015d1743d8
+Step 14/20 : RUN mkdir /opt/message-processor
+ ---> Running in 2ca95bbdef33
+ ---> ab921537db3b
+Removing intermediate container 2ca95bbdef33
+Step 15/20 : ADD message-gateway/ /opt/message-gateway/
+ ---> 636eb433f31e
+Removing intermediate container a9f5babccf29
+Step 16/20 : ADD message-processor/ /opt/message-processor/
+ ---> a9899485b8ff
+Removing intermediate container 0a7957b27f7b
+Step 17/20 : ADD start_app.sh /
+ ---> 3cdbe569a54f
+Removing intermediate container 0bba35585c0d
+Step 18/20 : ENTRYPOINT /usr/sbin/rabbitmq-server
+ ---> Running in e8fa44683a94
+ ---> f197052d5c27
+Removing intermediate container e8fa44683a94
+Step 19/20 : VOLUME /sys/fs/cgroup
+ ---> Running in 394fdc083b15
+ ---> 167f40c03068
+Removing intermediate container 394fdc083b15
+Step 20/20 : EXPOSE 5672 15672 25672 4369 8080
+ ---> Running in 69dcdf4c6da8
+ ---> 3c4a3d0164e5
+Removing intermediate container 69dcdf4c6da8
+Successfully built 3c4a3d0164e5
+[Pipeline] sh
+[infobip_pipe1] Running shell script
++ docker run --name message -p 8888:8080 -d infobip/message
+4414dac8e1be4640372696dd0745f72c3487e51c992d53216c233f330e268f2b
+[Pipeline] sh
+[infobip_pipe1] Running shell script
++ docker exec -d message ./start_app.sh
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
