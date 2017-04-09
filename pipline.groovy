@@ -22,19 +22,29 @@ node {
     stage 'Publish build info'
     server.publishBuildInfo buildInfo
 	
-	stage 'Copy to Staging env'
+	stage 'Deploying to Docker staging'
 	sh 'sudo -u root mkdir /opt/infobip-message/ || true'
 	sh 'sudo -u root rm -rf /opt/infobip-message/*'
 	sh 'sudo -u root rm -rf /opt/infobip-message/.* || true'
 	sh 'sudo -u root git clone https://github.com/flyer8/infobip-message.git /opt/infobip-message/'
     sh 'sudo -u root cp -rf message-gateway/ /opt/infobip-message/'
 	sh 'sudo -u root cp -rf message-processor/ /opt/infobip-message/'
-		
-	stage 'Deploy to Docker'
-    // Need add Dockerfile and script from git
+    // Deploying to Docker from git repo wth Dockerfile
     sh 'sudo -u root docker rm -f -v message || true'
 	sh 'sudo -u root docker rmi infobip/message || true'
 	sh 'sudo -u root docker build --rm -t infobip/message /opt/infobip-message'
 	sh 'sudo -u root docker run --name message -p 8888:8080 -d infobip/message'
 	sh 'sudo -u root docker exec -d message ./start_app.sh'
+	
+	stage 'HTTP Notification'
+    // create payload
+    def patchOrg = """
+    {
+    "Job name: ${env.JOB_NAME}",
+    "Buil number: ${env.BUILD_NUMBER}",
+    "Build URL: ${env.BUILD_URL}",
+    "Result": "${currentBuild.currentResult}",
+    }
+    """
+    def response = httpRequest acceptType: 'APPLICATION_JSON', contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: patchOrg, url: "http://requestb.in/18wshab1"
 }

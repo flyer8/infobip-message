@@ -35,7 +35,7 @@ Proceeding
 [Pipeline] ArtifactoryMavenBuild
 Jenkins Artifactory Plugin version: 2.10.3
 Artifactory integration is enabled
-[infobip_pipe1] $ java -classpath /opt/apache-maven-3.3.9/boot/plexus-classworlds-2.5.2.jar -Dmaven.home=/opt/apache-maven-3.3.9 -DbuildInfoConfig.propertiesFile=/tmp/buildInfo3558018206962424929.properties -Dm3plugin.lib=/var/lib/jenkins/cache/artifactory-plugin/2.10.3 -Dclassworlds.conf=/tmp/classworlds4017317191049814654conf -Dmaven.multiModuleProjectDirectory=/var/lib/jenkins/workspace/infobip_pipe1 org.codehaus.plexus.classworlds.launcher.Launcher -f pom.xml clean install
+[infobip_pipe1] $ java -classpath /opt/apache-maven-3.3.9/boot/plexus-classworlds-2.5.2.jar -Dmaven.home=/opt/apache-maven-3.3.9 -DbuildInfoConfig.propertiesFile=/tmp/buildInfo4906065683724845333.properties -Dm3plugin.lib=/var/lib/jenkins/cache/artifactory-plugin/2.10.3 -Dclassworlds.conf=/tmp/classworlds9219634574098227327conf -Dmaven.multiModuleProjectDirectory=/var/lib/jenkins/workspace/infobip_pipe1 org.codehaus.plexus.classworlds.launcher.Launcher -f pom.xml clean install
 [main] INFO org.apache.maven.cli.event.ExecutionEventLogger - Scanning for projects...
 [main] INFO org.jfrog.build.extractor.maven.BuildInfoRecorder - Initializing Artifactory Build-Info Recording
 [main] INFO org.apache.maven.cli.event.ExecutionEventLogger - ------------------------------------------------------------------------
@@ -77,7 +77,7 @@ Artifactory integration is enabled
  T E S T S
 -------------------------------------------------------
 Running messaging.processor.ConfigurationTest
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.343 sec
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.333 sec
 
 Results :
 
@@ -135,9 +135,9 @@ Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
  T E S T S
 -------------------------------------------------------
 Running messaging.gateway.message.MessageValidatorTest
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.417 sec
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.31 sec
 Running messaging.gateway.message.MessageFactoryTest
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.575 sec
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.235 sec
 
 Results :
 
@@ -149,7 +149,7 @@ Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
 [main] INFO org.apache.maven.plugin.war.WarMojo - Assembling webapp [message-gateway] in [/var/lib/jenkins/workspace/infobip_pipe1/message-gateway/target/message-gateway-1.0-SNAPSHOT]
 [main] INFO org.apache.maven.plugin.war.WarMojo - Processing war project
 [main] INFO org.apache.maven.plugin.war.WarMojo - Copying webapp resources [/var/lib/jenkins/workspace/infobip_pipe1/message-gateway/src/main/webapp]
-[main] INFO org.apache.maven.plugin.war.WarMojo - Webapp assembled in [390 msecs]
+[main] INFO org.apache.maven.plugin.war.WarMojo - Webapp assembled in [166 msecs]
 [main] INFO org.codehaus.plexus.archiver.war.WarArchiver - Building war: /var/lib/jenkins/workspace/infobip_pipe1/message-gateway/target/message-gateway-1.0-SNAPSHOT.war
 [main] INFO org.codehaus.plexus.archiver.war.WarArchiver - WEB-INF/web.xml already added, skipping
 [main] INFO org.apache.maven.cli.event.ExecutionEventLogger - 
@@ -176,15 +176,15 @@ log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more in
 [main] INFO org.apache.maven.cli.event.ExecutionEventLogger - ------------------------------------------------------------------------
 [main] INFO org.apache.maven.cli.event.ExecutionEventLogger - Reactor Summary:
 [main] INFO org.apache.maven.cli.event.ExecutionEventLogger - 
-[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - message-processor .................................. SUCCESS [ 25.924 s]
-[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - message-gateway .................................... SUCCESS [ 13.274 s]
-[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - messaging-example .................................. SUCCESS [  0.075 s]
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - message-processor .................................. SUCCESS [ 23.062 s]
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - message-gateway .................................... SUCCESS [  5.597 s]
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - messaging-example .................................. SUCCESS [  0.066 s]
 [main] INFO org.apache.maven.cli.event.ExecutionEventLogger - ------------------------------------------------------------------------
 [main] INFO org.apache.maven.cli.event.ExecutionEventLogger - BUILD SUCCESS
 [main] INFO org.apache.maven.cli.event.ExecutionEventLogger - ------------------------------------------------------------------------
-[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - Total time: 04:18 min
-[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - Finished at: 2017-04-09T01:13:33+03:00
-[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - Final Memory: 19M/50M
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - Total time: 01:20 min
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - Finished at: 2017-04-10T00:44:31+03:00
+[main] INFO org.apache.maven.cli.event.ExecutionEventLogger - Final Memory: 20M/50M
 [main] INFO org.apache.maven.cli.event.ExecutionEventLogger - ------------------------------------------------------------------------
 [Pipeline] stage (Publish build info)
 Using the ‘stage’ step without a block argument is deprecated
@@ -192,10 +192,10 @@ Entering stage Publish build info
 Proceeding
 [Pipeline] publishBuildInfo
 Deploying build info to: http://192.168.0.110:8081/artifactory/api/build
-Build successfully deployed. Browse it in Artifactory under http://192.168.0.110:8081/artifactory/webapp/builds/infobip_pipe1/35
-[Pipeline] stage (Copy to Staging env)
+Build successfully deployed. Browse it in Artifactory under http://192.168.0.110:8081/artifactory/webapp/builds/infobip_pipe1/38
+[Pipeline] stage (Deploying to Docker staging)
 Using the ‘stage’ step without a block argument is deprecated
-Entering stage Copy to Staging env
+Entering stage Deploying to Docker staging
 Proceeding
 [Pipeline] sh
 [infobip_pipe1] Running shell script
@@ -204,7 +204,7 @@ mkdir: cannot create directory ‘/opt/infobip-message/’: File exists
 + true
 [Pipeline] sh
 [infobip_pipe1] Running shell script
-+ sudo -u root rm -rf /opt/infobip-message/Dockerfile /opt/infobip-message/message-gateway /opt/infobip-message/message-processor /opt/infobip-message/pipline.groovy /opt/infobip-message/README.md /opt/infobip-message/start_app.sh
++ sudo -u root rm -rf /opt/infobip-message/Dockerfile /opt/infobip-message/job-output.txt /opt/infobip-message/message-gateway /opt/infobip-message/message-processor /opt/infobip-message/pipline.groovy /opt/infobip-message/README.md /opt/infobip-message/start_app.sh
 [Pipeline] sh
 [infobip_pipe1] Running shell script
 + sudo -u root rm -rf /opt/infobip-message/. /opt/infobip-message/.. /opt/infobip-message/.git
@@ -221,95 +221,64 @@ Cloning into '/opt/infobip-message'...
 [Pipeline] sh
 [infobip_pipe1] Running shell script
 + sudo -u root cp -rf message-processor/ /opt/infobip-message/
-[Pipeline] stage (Deploy to Docker)
-Using the ‘stage’ step without a block argument is deprecated
-Entering stage Deploy to Docker
-Proceeding
 [Pipeline] sh
 [infobip_pipe1] Running shell script
-+ docker rm -f -v message
-message
++ sudo -u root docker rm -f -v message
+Error response from daemon: No such container: message
++ true
 [Pipeline] sh
 [infobip_pipe1] Running shell script
-+ docker rmi infobip/message
-Untagged: infobip/message:latest
-Deleted: sha256:76f9513198fb47ffe2d2ddb875bfafd3c16626194e0ab811bdedf115e2c623c5
-Deleted: sha256:16730b04f9f552680cf0631c6783d44ec3e4cd71cb1b6525116591f48b9b0f8a
-Deleted: sha256:3ce270f6623e21f54f103a168d2deb3549b83009a995ab6a5716b1742e7da010
-Deleted: sha256:69be6f05e1bde2c1878966edf247907c9d266681be8c285486e1d1047999aa5a
-Deleted: sha256:956f69d0176bf1e1fbdc8c9da1285bb7d8af387bfc1cb7c18e18e09e3ee76d54
-Deleted: sha256:0141300586e9bef778246bf514ce23868aa7088a5b536dc861b15220d494d7a3
-Deleted: sha256:0ace9dd4bf80e5dd84c7dd16844340556e51f8e74c41a48e6a1f71c03c6c10bb
-Deleted: sha256:1e78da4996b0e7ebd666ef055f7a8c5f8ec0930c2c2e11719508388feabc9e2e
-Deleted: sha256:cc3baabbce0f9c5cd8558c34729a8d0b8a9c03ec8a3362aef8339bdd8df9fc32
-Deleted: sha256:50d25bbc3f41fa7a32be3ce39b1a30acd7a288316abb5b3f8ca67c838bc3e505
-Deleted: sha256:f54c73922c1884dc3effc4f1626b122491416c09d9685c7560e98b13e9cb6bf1
-Deleted: sha256:f8633253215286e7f66f5f21c54ee066583ba567c9bd58a1cc1943ac3440ba6a
-Deleted: sha256:649096bb605b7397ad164809fbcf98daf146b6b3f1e8c85d13286bf5268c9dfa
-Deleted: sha256:14eb01657dbc3af978cc1b63bb5982ea6c1e2a37a541c81d7ff2f09ffe08a658
-Deleted: sha256:3b9c56124adb67e9fe2644ce1910ae3c6b940a4947cae973db1069be699d78e5
-Deleted: sha256:bd6eeac2b608b4bf3153a5a08af8e77d7321bcb47c57651846087786e8fb29d6
-Deleted: sha256:6a72ee11d5142edde2a394798755c073d1d7849acfbe7241f9117dfd7c261a87
-Deleted: sha256:29ee20769aae14d55cd39bab986ddfa6532d26f6a86081211c255a55411d8410
-Deleted: sha256:1032fe69189fd5e8b3ea0e1fcf35aa700f5a5a179830460894897168910000b8
-Deleted: sha256:130bf32f6a0358a7ea5ce7aa48cd384aeb0ce8d70a24ae5b42ef79559e0df3a1
-Deleted: sha256:a257fb5b63408b7e89b88ed42aebc183aa258f49c5a113bd062b061447f18556
-Deleted: sha256:74efdf9d6217b2ef85ade86bbed6f57f2f12715e87d99caeb4cc46473425de4f
-Deleted: sha256:ff902cb19a6cbe052ee6d8790074c34ed6d2994759d94e7b5864203971eecf5e
-Deleted: sha256:5785ab5710a6945f270da3c1cb57ba751766aca603db0126eaa295545f628015
-Deleted: sha256:a9d18de02a965294a895272b8f11f1ebe4ad3312aba6cfc22594dfb1b33d5aa9
-Deleted: sha256:a368261e94d4b18d57c48473ff55dac349181521843ee6b05c2128b5b1f98ea7
-Deleted: sha256:02c67737474792274d41f78a54917de185337ef0a56eab30043afb6e33c97e30
-Deleted: sha256:647f70cd335b7fa1fa41f6e6b3e7de8c97cbee8e455589edcbbe9389d1a7b13c
-Deleted: sha256:afeb94ec86902f88bfd6a64d538741bb5e9b892321bfa7b74fc6cf546d800838
++ sudo -u root docker rmi infobip/message
+Error response from daemon: No such image: infobip/message:latest
++ true
 [Pipeline] sh
 [infobip_pipe1] Running shell script
-+ docker build --rm -t infobip/message /opt/infobip-message
-Sending build context to Docker daemon 4.754 MB
++ sudo -u root docker build --rm -t infobip/message /opt/infobip-message
+Sending build context to Docker daemon 4.838 MB
 
 Step 1/20 : FROM centos
  ---> a8493f5f50ff
 Step 2/20 : MAINTAINER flyer8 "flyer8@yandex.ru"
- ---> Running in d1a68e0508ee
- ---> 59987b9aca66
-Removing intermediate container d1a68e0508ee
+ ---> Running in e400a797f55b
+ ---> 2ded1aecace4
+Removing intermediate container e400a797f55b
 Step 3/20 : ENV container docker
- ---> Running in 81f77dcd091f
- ---> 2f0c66f0aeb9
-Removing intermediate container 81f77dcd091f
+ ---> Running in 76bff1c6434a
+ ---> bdc7e4a121b3
+Removing intermediate container 76bff1c6434a
 Step 4/20 : ARG JAVA_VERSION=1.8.0
- ---> Running in 9285e9ae15ac
- ---> de95b7cb913d
-Removing intermediate container 9285e9ae15ac
+ ---> Running in a76d8672f905
+ ---> 55d8e7ab6d64
+Removing intermediate container a76d8672f905
 Step 5/20 : ARG MAVEN_VERSION=3.3.9
- ---> Running in c06802ea92d2
- ---> 011c4df67adb
-Removing intermediate container c06802ea92d2
+ ---> Running in 89d256ce3a14
+ ---> eae127fcbd1a
+Removing intermediate container 89d256ce3a14
 Step 6/20 : ENV JAVA_HOME /usr/lib/jvm/java
- ---> Running in 1206e54ee892
- ---> 35705636c63c
-Removing intermediate container 1206e54ee892
+ ---> Running in e4454fb5cdeb
+ ---> 4f25eb228505
+Removing intermediate container e4454fb5cdeb
 Step 7/20 : ENV MAVEN_HOME /usr/share/maven
- ---> Running in 68775f6b6c75
- ---> 95f829fbb247
-Removing intermediate container 68775f6b6c75
+ ---> Running in dfc8bd85aeb6
+ ---> 030802de33cf
+Removing intermediate container dfc8bd85aeb6
 Step 8/20 : RUN yum update -y
- ---> Running in 373975dda89e
+ ---> Running in f2f12a6ec67f
 Loaded plugins: fastestmirror, ovl
 Determining fastest mirrors
- * base: centos-mirror.rbc.ru
- * extras: centos-mirror.rbc.ru
- * updates: centos-mirror.rbc.ru
+ * base: mirror.yandex.ru
+ * extras: mirror.yandex.ru
+ * updates: mirror.yandex.ru
 No packages marked for update
- ---> fa0286cf2640
-Removing intermediate container 373975dda89e
+ ---> d8dec587d72e
+Removing intermediate container f2f12a6ec67f
 Step 9/20 : RUN yum install -y java-$JAVA_VERSION-openjdk-devel
- ---> Running in a10e3d267662
+ ---> Running in 759cb7ae96f1
 Loaded plugins: fastestmirror, ovl
 Loading mirror speeds from cached hostfile
- * base: centos-mirror.rbc.ru
- * extras: centos-mirror.rbc.ru
- * updates: centos-mirror.rbc.ru
+ * base: mirror.yandex.ru
+ * extras: mirror.yandex.ru
+ * updates: mirror.yandex.ru
 Resolving Dependencies
 --> Running transaction check
 ---> Package java-1.8.0-openjdk-devel.x86_64 1:1.8.0.121-0.b13.el7_3 will be installed
@@ -442,11 +411,11 @@ Install  1 Package (+32 Dependent packages)
 Total download size: 46 M
 Installed size: 156 M
 Downloading packages:
-Public key for fontpackages-filesystem-1.44-8.el7.noarch.rpm is not installed
-[91mwarning: /var/cache/yum/x86_64/7/base/packages/fontpackages-filesystem-1.44-8.el7.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID f4a80eb5: NOKEY
+Public key for copy-jdk-configs-1.2-1.el7.noarch.rpm is not installed
+[91mwarning: /var/cache/yum/x86_64/7/base/packages/copy-jdk-configs-1.2-1.el7.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID f4a80eb5: NOKEY
 [0mPublic key for java-1.8.0-openjdk-1.8.0.121-0.b13.el7_3.x86_64.rpm is not installed
 --------------------------------------------------------------------------------
-Total                                              2.1 MB/s |  46 MB  00:21     
+Total                                              2.9 MB/s |  46 MB  00:15     
 Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 [91mImporting GPG key 0xF4A80EB5:
  Userid     : "CentOS-7 Key (CentOS 7 Official Signing Key) <security@centos.org>"
@@ -562,19 +531,19 @@ Dependency Installed:
   xorg-x11-fonts-Type1.noarch 0:7.5-9.el7                                       
 
 Complete!
- ---> e25bbd071fd0
-Removing intermediate container a10e3d267662
+ ---> a8ac6d2ab345
+Removing intermediate container 759cb7ae96f1
 Step 10/20 : RUN mkdir -p $MAVEN_HOME /usr/share/maven/ref       && curl -fsSL http://apache.osuosl.org/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz       | tar -xzC $MAVEN_HOME --strip-components=1       && ln -s $MAVEN_HOME/bin/mvn /usr/bin/mvn
- ---> Running in 0368000c8445
- ---> 20c2445ed0f1
-Removing intermediate container 0368000c8445
+ ---> Running in bc49ab009a3c
+ ---> b5c195d00660
+Removing intermediate container bc49ab009a3c
 Step 11/20 : RUN yum install epel-release -y
- ---> Running in 1eddc023df2e
+ ---> Running in fcbf2f517aca
 Loaded plugins: fastestmirror, ovl
 Loading mirror speeds from cached hostfile
- * base: centos-mirror.rbc.ru
- * extras: centos-mirror.rbc.ru
- * updates: centos-mirror.rbc.ru
+ * base: mirror.yandex.ru
+ * extras: mirror.yandex.ru
+ * updates: mirror.yandex.ru
 Resolving Dependencies
 --> Running transaction check
 ---> Package epel-release.noarch 0:7-9 will be installed
@@ -606,16 +575,16 @@ Installed:
   epel-release.noarch 0:7-9                                                     
 
 Complete!
- ---> e0aef19311db
-Removing intermediate container 1eddc023df2e
+ ---> 32033811dff3
+Removing intermediate container fcbf2f517aca
 Step 12/20 : RUN yum install rabbitmq-server.noarch -y
- ---> Running in 23b57c7e62ed
+ ---> Running in 1a94844992e9
 Loaded plugins: fastestmirror, ovl
 Loading mirror speeds from cached hostfile
- * base: centos-mirror.rbc.ru
- * epel: fedora-mirror01.rbc.ru
- * extras: centos-mirror.rbc.ru
- * updates: centos-mirror.rbc.ru
+ * base: mirror.yandex.ru
+ * epel: mirror.yandex.ru
+ * extras: mirror.yandex.ru
+ * updates: mirror.yandex.ru
 Resolving Dependencies
 --> Running transaction check
 ---> Package rabbitmq-server.noarch 0:3.3.5-33.el7 will be installed
@@ -707,7 +676,7 @@ Downloading packages:
 [91mwarning: /var/cache/yum/x86_64/7/epel/packages/erlang-asn1-R16B-03.18.el7.x86_64.rpm: Header V3 RSA/SHA256 Signature, key ID 352c64e5: NOKEY
 [0mPublic key for erlang-asn1-R16B-03.18.el7.x86_64.rpm is not installed
 --------------------------------------------------------------------------------
-Total                                              1.5 MB/s |  21 MB  00:14     
+Total                                              2.4 MB/s |  21 MB  00:08     
 Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
 [91mImporting GPG key 0x352C64E5:
  Userid     : "Fedora EPEL (7) <epel@fedoraproject.org>"
@@ -793,45 +762,57 @@ Dependency Installed:
   logrotate.x86_64 0:3.8.6-12.el7                                               
 
 Complete!
- ---> ecc909f1b7bd
-Removing intermediate container 23b57c7e62ed
+ ---> ab3dafaa53a6
+Removing intermediate container 1a94844992e9
 Step 13/20 : RUN mkdir /opt/message-gateway
- ---> Running in 0f015d1743d8
- ---> 6e8edc6a36d9
-Removing intermediate container 0f015d1743d8
+ ---> Running in 38524377da57
+ ---> 9e583912499b
+Removing intermediate container 38524377da57
 Step 14/20 : RUN mkdir /opt/message-processor
- ---> Running in 2ca95bbdef33
- ---> ab921537db3b
-Removing intermediate container 2ca95bbdef33
+ ---> Running in 3b2d42294719
+ ---> 8a6ca5218e39
+Removing intermediate container 3b2d42294719
 Step 15/20 : ADD message-gateway/ /opt/message-gateway/
- ---> 636eb433f31e
-Removing intermediate container a9f5babccf29
+ ---> 269170735398
+Removing intermediate container d34ceabe12f3
 Step 16/20 : ADD message-processor/ /opt/message-processor/
- ---> a9899485b8ff
-Removing intermediate container 0a7957b27f7b
+ ---> 6f184e648a14
+Removing intermediate container 1ff12e3fc5e0
 Step 17/20 : ADD start_app.sh /
- ---> 3cdbe569a54f
-Removing intermediate container 0bba35585c0d
+ ---> 787d8e6fa954
+Removing intermediate container e4a47853f497
 Step 18/20 : ENTRYPOINT /usr/sbin/rabbitmq-server
- ---> Running in e8fa44683a94
- ---> f197052d5c27
-Removing intermediate container e8fa44683a94
+ ---> Running in 40873455448c
+ ---> 1ef3bf9a27ed
+Removing intermediate container 40873455448c
 Step 19/20 : VOLUME /sys/fs/cgroup
- ---> Running in 394fdc083b15
- ---> 167f40c03068
-Removing intermediate container 394fdc083b15
+ ---> Running in 7de9bb7cd713
+ ---> 77d2868d64d4
+Removing intermediate container 7de9bb7cd713
 Step 20/20 : EXPOSE 5672 15672 25672 4369 8080
- ---> Running in 69dcdf4c6da8
- ---> 3c4a3d0164e5
-Removing intermediate container 69dcdf4c6da8
-Successfully built 3c4a3d0164e5
+ ---> Running in e651aa8a4641
+ ---> cf2d03d8d72f
+Removing intermediate container e651aa8a4641
+Successfully built cf2d03d8d72f
+[infobip_pipe1] Running shell script
++ sudo -u root docker run --name message -p 8888:8080 -d infobip/message
+[Pipeline] sh
+dfe180737fd25c098ed90800747e6569b5e589a320d9295d2bc6bd4ef8c7bd7a
 [Pipeline] sh
 [infobip_pipe1] Running shell script
-+ docker run --name message -p 8888:8080 -d infobip/message
-4414dac8e1be4640372696dd0745f72c3487e51c992d53216c233f330e268f2b
-[Pipeline] sh
-[infobip_pipe1] Running shell script
-+ docker exec -d message ./start_app.sh
++ sudo -u root docker exec -d message ./start_app.sh
+[Pipeline] stage (HTTP Notification)
+Using the ‘stage’ step without a block argument is deprecated
+Entering stage HTTP Notification
+Proceeding
+[Pipeline] httpRequest
+HttpMethod: POST
+URL: http://requestb.in/18wshab1
+Content-type: application/json
+Accept: application/json
+Sending request to url: http://requestb.in/18wshab1
+Response Code: HTTP/1.1 200 OK
+Success code from [100?399]
 [Pipeline] }
 [Pipeline] // node
 [Pipeline] End of Pipeline
