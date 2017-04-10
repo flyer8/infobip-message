@@ -1,4 +1,4 @@
-##Deploying Java application using Jenkins Pipeline with Docker
+## Deploying Java application using Jenkins Pipeline with Docker
 
 1. Requirements
 The deployment was performed on VM Linux Centos 7 (RAM 1Gb) with installed and configured:
