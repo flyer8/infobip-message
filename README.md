@@ -1,6 +1,7 @@
 ## Deploying Java application using Jenkins Pipeline with Docker
 
 1. Requirements
+
 The deployment was performed on VM Linux Centos 7 (RAM 1Gb) with installed and configured:
 * Jenkins ver. 2.53 with Pipeline, Maven, Artifactory, GitHib, HTTP Request plugins.
   * To match in the groovy script, please be ensure, that Maven name in “Global Tool Configuration” is “Maven-3.3.9”;
