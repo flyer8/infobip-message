@@ -33,7 +33,7 @@ sh 'sudo -u root scp -r message-processor/ 192.168.0.110:/opt/infobip-message/'
 // Deploying to Docker from git repo with Dockerfile
 sh 'sudo -u root ssh 192.168.0.110 "docker rm -f -v message || true"'
 sh 'sudo -u root ssh 192.168.0.110 "docker rmi infobip/message || true"'
-sh 'sudo -u root ssh 192.168.0.110 "docker build --rm -f Dockerfile.staging -t infobip/message /opt/infobip-message"'
+sh 'sudo -u root ssh 192.168.0.110 "docker build --rm -t infobip/message /opt/infobip-message"'
 sh 'sudo -u root ssh 192.168.0.110 "docker run --name message -p 8888:8080 -d infobip/message"'
 sh 'sudo -u root ssh 192.168.0.110 "docker exec -d message ./start_app.sh"'
 
