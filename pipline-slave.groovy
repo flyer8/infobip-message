@@ -39,7 +39,7 @@ sh 'sudo -u root ssh 192.168.0.110 "docker exec -d message java -jar /opt/messag
 sh 'sudo -u root ssh 192.168.0.110 "docker exec -it message sleep 5 || true"'
 sh 'sudo -u root ssh 192.168.0.110 "docker exec -d message mvn tomcat7:run -f /opt/message-gateway/pom.xml"'
 sh 'sudo -u root ssh 192.168.0.110 "docker exec -it message sleep 10 || true"'
-sh 'sudo -u root ssh 192.168.0.110 "docker exec -d message ./smoke-test.sh"'
+sh 'sudo -u root ssh 192.168.0.110 "docker exec -it message ./smoke-test.sh"'
 
 stage 'HTTP Notification'
 // create payload
