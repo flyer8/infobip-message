@@ -35,11 +35,7 @@ sh 'sudo -u root ssh 192.168.0.110 "docker rm -f -v message || true"'
 sh 'sudo -u root ssh 192.168.0.110 "docker rmi infobip/message || true"'
 sh 'sudo -u root ssh 192.168.0.110 "docker build --rm -t infobip/message /opt/infobip-message"'
 sh 'sudo -u root ssh 192.168.0.110 "docker run --name message -p 8888:8080 -d infobip/message"'
-sh 'sudo -u root ssh 192.168.0.110 "docker exec -d message java -jar /opt/message-processor/target/message-processor-1.0-SNAPSHOT.jar /opt/message-processor/etc/config.properties"'
-sh 'sudo -u root ssh 192.168.0.110 "docker exec -it message sleep 5 || true"'
-sh 'sudo -u root ssh 192.168.0.110 "docker exec -d message mvn tomcat7:run -f /opt/message-gateway/pom.xml"'
-sh 'sudo -u root ssh 192.168.0.110 "docker exec -it message sleep 10 || true"'
-sh 'sudo -u root ssh 192.168.0.110 "docker exec -it message ./smoke-test.sh"'
+sh 'sudo -u root ssh 192.168.0.110 "docker exec -d message ./start_app.sh"'
 
 stage 'HTTP Notification'
 // create payload
