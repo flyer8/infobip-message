@@ -24,6 +24,7 @@ RUN mkdir /opt/message-processor
 ADD message-gateway/ /opt/message-gateway/
 ADD message-processor/ /opt/message-processor/
 ADD start_app.sh /
+ADD smoke-test.sh /
 ENTRYPOINT ["/usr/sbin/rabbitmq-server"]
 
 VOLUME ["/sys/fs/cgroup"]
