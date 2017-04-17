@@ -3,7 +3,7 @@
 1. Requirements
 
 The deployment was performed on VM Linux Centos 7 (RAM 1Gb) with installed and configured:
-* Jenkins ver. 2.53 with Pipeline, Maven, Artifactory, GitHib, HTTP Request plugins.
+* Jenkins ver. 2.53 with Pipeline, Maven, Artifactory, GitHib, HTTP Request, Docker plugins.
   * To match in the groovy script, please be ensure, that Maven name in “Global Tool Configuration” is “Maven-3.3.9”;
   * Also Artifactory Server ID in “Configure system” is "Artifactory_localhost".
 * Artifactory Version 5.2.0
@@ -11,6 +11,7 @@ The deployment was performed on VM Linux Centos 7 (RAM 1Gb) with installed and c
 * java-1.8.0-openjdk-devel.x86_64
 * Apache Maven 3.3.9
 * Docker version 17.03.0-ce
+* GIT
 
 2. First need provide to Jenkins user root permissions on target OS:
 
