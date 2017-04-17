@@ -37,6 +37,7 @@ sh 'sudo -u root ssh 192.168.0.110 "docker build --rm -t infobip/message /opt/in
 sh 'sudo -u root ssh 192.168.0.110 "docker run --name message -p 8888:8080 -d infobip/message"'
 sh 'sudo -u root ssh 192.168.0.110 "docker exec -d message ./start_app.sh"'
 
+// Verifying deployed Java app
 stage 'Simple Smoke test'
 sh 'sudo -u root ssh 192.168.0.110 "docker exec -i message ./smoke-test.sh"'
 
