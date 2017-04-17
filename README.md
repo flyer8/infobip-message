@@ -1,4 +1,5 @@
 ## Deploying Java application using Jenkins Pipeline with Docker
+https://flylabs.blogspot.ru/2017/04/continuous-deployment-pipeline-2.html
 
 1. Requirements
 
